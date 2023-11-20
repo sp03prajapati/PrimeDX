@@ -18,7 +18,13 @@ namespace DostarGarage.Controllers
             return View();
         }
 
-       [HttpGet]
+        public ActionResult New()
+        {
+            return View();
+        }
+
+
+        [HttpGet]
         public JsonResult CarInfo()
         {
             string cs = ConfigurationManager.ConnectionStrings["cardbms"].ConnectionString;
