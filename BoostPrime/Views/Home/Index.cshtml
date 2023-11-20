@@ -1,0 +1,64 @@
+﻿@model BoostPrime.Models.Employee;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center ">
+    <h1 class="display-4">Welcome To <b class="rounded-3" style="background-color:greenyellow;">Home</b></h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<div class="container">
+    <div class="row d-flex justify-content-center ">
+        <div class="col-sm-4" >
+            <div asp-validation-summary="All" style="color:red;">
+
+            </div>
+            <form class="d-grid" asp-action="Index" asp-controller="Home" method="post">
+                @* <label asp-for="Name" >Enter Name</label> *@
+                <input asp-for="Name" placeholder="Enter Name" class="form-control" />
+                @* <span asp-validation-for="Name" style="color:red;"></span> *@
+               <br />
+                @* <label asp-for="Email">Enter Email</label> *@
+                <input asp-for="Email" placeholder="Enter Email" class="form-control" />
+                @* <span asp-validation-for="Email" style="color:red;"></span> *@
+               <br />
+               <select asp-for="Gender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()">
+                       <option value="">Select Gender</option>
+               </select>    
+               <br />
+                <input asp-for="Age" placeholder="Enter Age" class="form-control" />
+                @* <span asp-validation-for="Age" style="color:red;"></span> *@
+                <br />
+                <input asp-for="Designation" placeholder="Enter Designation" class="form-control" />
+                <br />
+                <input asp-for="Salary" placeholder="Enter Salary" class="form-control" />
+                <br />
+                <label>
+                     Marride:
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="Marride" value="Yes" >
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="Marride" value="No">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        No
+                    </label>
+                </div>
+                <br />
+                
+                <textarea asp-for="Description" rows="5" placeholder="Enter Description" class="form-control">
+
+                </textarea>
+                <br />
+                <input type="submit" value="submit" class="btn btn-outline-primary btn-block"/>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿@model Crud_Asp_Mvc.Models.Employees
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employees</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_Mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_Mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_Salary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_Salary)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.Employee_ID  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

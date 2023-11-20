@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+    // var cust1 = ViewBag.Custo;
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+
+@*   <table>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Age</td>
+        </tr>
+        @foreach (var item in cust1)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+            </tr>
+        }
+    </table> *@
+
+@* ----------------------------ViewBag--------------------------------- *@
+@*
+        @ViewBag.Dox1
+        <br />
+        @ViewBag.Dox2
+        <br />
+
+        @{
+           foreach (var item in ViewBag.Dox3)
+            {
+                <h2>@item</h2>
+            }
+        } *@
+
+@* ----------------------------ViewBag--------------------------------- *@
+
+
+
+@* ----------------------------View Data--------------------------------- *@
+
+@*  <p>@ViewData["data1"]</p>
+    <p>@ViewData["data2"]</p>
+    <p>@ViewData["data3"]</p>
+
+    @{
+        foreach (var item in (string[])ViewData["data4"])
+        {
+              <h1>@item</h1>
+        }
+    }
+    @{
+        foreach (var items in (List<string>)ViewData["data5"])
+        {
+            <h1>@items</h1>
+        }
+    } *@
+
+@* ----------------------------View Data--------------------------------- *@
+
+@* ----------------------------Single Line  Rozar Syntex--------------------------------- *@
+@*
+    <h2>Get Current Date & Time Is @DateTime.Now</h2>
+    <h2>Get Current Year Is @DateTime.Now.Year</h2>
+
+    @{
+        var name = "PrimeOcean";
+        var age = 26;
+    }
+    <h2>Name = @name</h2>
+    <h2>Age = @age</h2>
+
+    @{
+        var fname = "Demo";
+        if (fname.Equals("Demo"))
+        {
+
+            <h2>Hello @fname</h2>
+        }
+        else
+        {
+           <h2>bye @fname</h2>
+        }
+
+     } *@
+@* ----------------------------Single Line  Rozar Syntex--------------------------------- *@

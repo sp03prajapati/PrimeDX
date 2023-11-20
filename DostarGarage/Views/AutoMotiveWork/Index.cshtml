@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<h2>Dostar</h2>*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dostar Garage</title>
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+</head>
+<body>
+    <h2 style="color:darkviolet;"> “<b>EveryThing</b> you can imagine is real.” </h2>
+    <hr />
+    <table id="example" class="display" style="width:100%">
+        <thead> 
+            <tr>
+                <td>ID</td>
+                <td>FirstName</td>
+                <td>LastName</td>
+                <td>Salary</td>
+            </tr>
+        </thead>
+    </table>
+    <h5></h5>
+    <div id="container">
+        <div class="row">
+            
+            Total Count <a href="#" id="cont" style="background-color:forestgreen;" class="badge badge-success">0</a>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+           
+            $.ajax({
+                type: "GET",
+                url: "/AutoMotiveWork/CarInfo",
+                datatype: "json",
+                success: function (response) {
+                    debugger
+                    $('#cont').text(response.length);
+                   
+                    $('h5').html('<b style="color:forestgreen;">GET DATA SUCCESS!!!<b/>');
+                    new DataTable('#example', {
+                        data: response,
+                        columns: [
+                            { data: 'ID' },
+                            { data: 'FirstName' },
+                            { data: 'LastName' },
+                            { data: 'Salary' }
+                        ],
+                        "pageLength": 5,
+                        "scrollCollapse": true,
+                        "scrollY": '200px',
+                        "paging": false,
+                    });
+                },
+                error: function () {
+                    alert("ERROR!");
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide/Show</title>
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css"> -->
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+    <style>
+        #btn, #sortbtn {
+            font-family: monospace;
+            color: white;
+            background-color: black;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid yellowgreen;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Dark Ocean</h1>
+
+    <form action="" id="myform">
+        <input type="text" placeholder="Enter you Firstname" id="fname" name="fname" />
+        <input type="text" placeholder="Enter you Surname" id="sname" name="sname" />
+        <br />
+        <br />
+        <input type="button" value="submit" id="btn" />
+    </form>
+    <br />
+    <h4 id="result"></h4>
+    <h4 id="result1"></h4>
+    <h4 id="result2"></h4>
+
+    <div>
+        <input type="button" value="Show List" id="sortbtn" />
+
+        <h4 id="ans"></h4>
+    </div>
+    <center>
+        <h1 style="color: green">GeeksforGeeks</h1>
+       
+        <input type="button" value="Add Cookies" id="cookbtn" />
+        <button id="cookrmvbtn">Remove Cookie</button>
+        <p></p>
+    </center>
+
+
+    <script src="~/Scripts/jquery-cookie.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                console.log('wel come Dost..');
+                var fname = $("#fname").val();
+                var sname = $("#sname").val();
+
+                if (fname == "" || sname == "") {
+                    alert('All fields are required...!');
+                }
+                else {
+                    $.get(
+                        "/Demo/Data",
+                        // { firstName: fname, UserName: sname }, // Manually
+                        $("#myform").serialize(),// serialize
+                        function (responce, status, xhr) {
+                            $('#result').text(responce);
+                            $('#result').css('color', 'Green');
+                            $("#myform").trigger('reset');
+                            $('#result').fadeOut(10000);
+
+
+                        }
+                    )
+                }
+            });
+
+            $('#sortbtn').click(function () {
+                var array = ["Shailesh", "Amit", "Zeel", "Jatin", "Banti", "Kanak", "Mahesh"];
+                sortArr = array.sort();
+
+                $("#ans").html(sortArr.join(" "));
+            });
+
+            $('#cookbtn').click(function() {
+                cookvalue = 'The Ocean Prime Trend.'
+                document.cookie = "Name = " + cookvalue
+            });
+        });
+
+    </script>
+</body>
+</html>

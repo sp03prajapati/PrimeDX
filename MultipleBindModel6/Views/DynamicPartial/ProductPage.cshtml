@@ -1,0 +1,29 @@
+﻿@model List<MultipleBindModel6.Models.ProductModel>
+@{
+    ViewData["Title"] = "ProductPage";
+}
+
+<h1>ProductPage</h1>
+
+<div class="container">
+    <div class="row">
+          @foreach (var item in Model)  
+            { 
+                <div class="col-md-4">
+                    <partial name="_ProductDynamicView" model="item"/>
+                 @*  @await Html.PartialAsync("_ProductDynamicView","item"); *@
+                </div>
+            }
+    </div>
+    <hr />
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <partial name="_ProductDynamicView" model="item" />
+                @*  @await Html.PartialAsync("_ProductDynamicView","item"); *@
+            </div>
+        }
+    </div>
+
+</div>

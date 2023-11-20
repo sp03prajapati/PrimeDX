@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>Dashboard</h1>
+
+@{
+    if (TempData["textmsg"] != null)
+    {   
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>@TempData["textmsg"]</strong><b> Wel come to PrimeOcean</b> @ViewBag.Mysession
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+}
+
+<h5>@ViewBag.Mysession</h5>
+<button><a  style="text-decoration:none;"asp-controller="Home" asp-action="Logout">LogOut</a></button>

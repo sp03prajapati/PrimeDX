@@ -1,0 +1,77 @@
+﻿@* @model Online_Store.Models.CustomerMode; *@
+@model IEnumerable<Online_Store.Models.CustomerMode>
+@{
+    ViewData["Title"] = "Home Page";
+
+    //var demo = ViewBag.test;
+    // var dex = ViewData["data"] as CustomerMode;
+    //var dex = TempData["data"] as CustomerMode;
+     // var dexs = ViewData["data"] as List<CustomerMode>;
+}
+
+<div class="text-center">
+    <h1 class="display-4" style="background-color:gray;">Welcome to <b style="color:lawngreen">Home</b></h1>
+
+    <h1 class="bg-success">Hyper-loop</h1>
+
+
+
+
+   @*  @{
+        foreach (var item in Model)
+        {
+                <h2>@item.Customer_Id</h2>
+            <h2>@item.Customer_Description</h2>
+            <h2>@item.Customer_Name</h2>
+                <p>------------------</p>
+
+        }
+    } *@
+
+   @*  <h2>@Model.Customer_Name</h2>
+    <h2>@Model.Customer_Description</h2>
+    <h2>@Model.Customer_Id</h2> *@
+
+    @* @{
+        if (dexs != null)
+        {
+            foreach (var item in dexs)
+            {
+                <h5>@item.Customer_Id</h5>
+                <h5>@item.Customer_Name</h5>
+                <h5>@item.Customer_Age</h5>
+                <h5>@item.Customer_Description</h5>
+            }
+
+        }
+    } *@
+
+
+
+
+@*    
+  <h2>@dex.Customer_Name</h2>
+  <h2>@dex.Customer_Description</h2>
+  <h2>@dex.Customer_Id</h2>
+     *@
+    @* <table>
+        <tr>
+            <td>Customer_ID</td>
+            <td>Customer_Name</td>
+            <td>Customer_Age</td>
+            <td>Customer_Discription</td>
+        </tr>
+        @foreach (var item in demo)
+        {
+        <tr>
+            <td>@item.Customer_Id</td>
+            <td>@item.Customer_Name</td>
+            <td>@item.Customer_Age</td>
+            <td>@item.Customer_Description</td>
+        </tr>
+
+        }
+    </table> *@
+  
+
+</div>

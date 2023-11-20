@@ -1,0 +1,23 @@
+﻿@model CodeFirstApproachCore6.Models.ManagerModel;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<label>Select City Name : </label>
+<form asp-controller="Manager"  asp-action="Index" method="post">
+    <select asp-for="Id" class="form-control" asp-items="@(new SelectList(Model.ManagerList,"Value","Text"))">
+    </select>
+
+    <br />
+    <input type="submit" value="submit" class="btn btn-outline-info" />
+</form>
+<br />
+@{
+    if (ViewBag.selectedvalue != null)
+    {
+        <h2>Selected Manager name: @ViewBag.selectedvalue</h2>
+    }
+}

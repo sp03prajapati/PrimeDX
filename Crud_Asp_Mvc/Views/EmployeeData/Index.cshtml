@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Crud_Asp_Mvc.Models.Employees>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if (TempData["InsertMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> @TempData["InsertMessage"]
+    </div>
+}
+@if (TempData["UpdateMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> @TempData["UpdateMessage"]
+    </div>
+}
+@if (TempData["DeleteMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> @TempData["DeleteMessage"]
+    </div>
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-hover table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_Mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_Salary)
+        </th>
+        <th>Operation</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_Salary)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Employee_ID }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.Employee_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Employee_ID })
+            </td>
+        </tr>
+    }
+
+</table>
