@@ -18,7 +18,7 @@ namespace DostarGarage.Controllers
             return View();
         }
 
-        public ActionResult New()
+        public ActionResult Neww()
         {
             return View();
         }
