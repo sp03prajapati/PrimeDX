@@ -18,12 +18,6 @@ namespace DostarGarage.Controllers
             return View();
         }
 
-        public ActionResult Neww()
-        {
-            return View();
-        }
-
-
         [HttpGet]
         public JsonResult CarInfo()
         {
